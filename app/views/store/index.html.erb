@@ -4,6 +4,6 @@
   <ul>
     <li><%= p.title %></li>
     <%= number_to_currency(p.price) %> <br />
-    <%= link_to "Show", products_path(p.id) %>
+    <%= link_to "Show", product_path(p.id) %>
   </ul>
 <% end %>
