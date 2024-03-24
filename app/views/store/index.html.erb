@@ -2,7 +2,8 @@
 
 <% @products.each do |p| %>
   <ul>
-    <li><%= p.title %></li>
+    <h4><li><%= p.title %></li></h4>
+
     <%= number_to_currency(p.price) %> <br />
     <%= link_to "Show", product_path(p.id) %>
   </ul>
