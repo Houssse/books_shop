@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" >Books Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a><%= link_to "Home", root_path, class: "nav-link active" %></a>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profile
+            </a>
+            <ul class="dropdown-menu">
+              <li><a><%= link_to 'Edit profile', edit_user_registration_path, class:"dropdown-item" %></a></li>
+
+              <li><hr class="dropdown-divider"></li>
+              <li><a><%= link_to 'Sign Out', destroy_user_session_path, class:"dropdown-item", data: {
+                                                                                turbo_method: :delete,
+                                                                                turbo_confirm: "Are you sure?"
+                                                                              } %>
+            </ul>
+          <% else %>
+          <li class="nav-item">
+            <a><%= link_to "Sig In", new_user_session_path, class: "nav-link active" %></a>
+          </li>
+
+          <li class="nav-item">
+            <a><%= link_to "Log in", new_user_registration_path, class: "nav-link active" %></a>
+          </li>
+        <% end %>
+        </li>
+      </ul>
+
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
