@@ -1,3 +1,4 @@
 <%= render @product %>
 
 <%= link_to 'Edit', edit_product_path(@product) %>
+<%= button_to 'Destroy', @product, method: :delete %>

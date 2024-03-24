@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update ]
+  before_action :set_product, only: %i[ show edit update destroy]
 
   def show
   end
@@ -33,7 +33,13 @@ class ProductsController < ApplicationController
         render :edit
       end
   end
-  
+
+  def destroy
+    @product.destroy
+    flash[:success] = 'Object was successfully deleted.'
+    redirect_to root_path
+  end
+    
 
   private
 
