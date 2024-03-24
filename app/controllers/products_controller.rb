@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show ]
+  before_action :set_product, only: %i[ show edit update ]
 
   def show
   end
@@ -17,9 +17,23 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "Something went wrong"
-      render 'new'
+      render :new
     end
   end
+
+  def edit
+  end
+  
+  def update
+      if @product.update(params_product)
+        flash[:success] = "Object was successfully updated"
+        redirect_to root_path
+      else
+        flash[:error] = "Something went wrong"
+        render :edit
+      end
+  end
+  
 
   private
 
