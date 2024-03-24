@@ -1,1 +1,9 @@
 <h1> Store </h1>
+
+<% @products.each do |p| %>
+  <ul>
+    <li><%= p.title %></li>
+    <%= number_to_currency(p.price) %> <br />
+    <%= link_to "Show", products_path(p.id) %>
+  </ul>
+<% end %>
